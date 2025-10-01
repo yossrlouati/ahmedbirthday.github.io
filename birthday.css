@@ -1,0 +1,312 @@
+.message_birth {
+    color: rgb(238, 235, 243);
+
+    position: absolute;
+    /* se place par rapport à .card_exterieur */
+    /*top: 50%;
+    /* au milieu vertical */
+    /*left: 50%;
+    /* au milieu horizontal 
+    transform: translate(-50%, -50%);*/
+
+
+
+}
+
+.message_birth img {
+
+    margin-top: 200px;
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+        /* commence à droite */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* revient normal */
+    }
+}
+
+
+
+.card_exterieur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+}
+
+.card_interieur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+
+
+    background-color: rgb(4, 11, 73);
+}
+
+.curtain {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(180deg, #7b113a, #ff6b81);
+
+}
+
+.curtain.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-image: url('birth_left.png');
+    background-repeat: no-repeat;
+    /* 2. Empêche l'image de se répéter */
+    background-size: 100% 100%;
+    /* 3. Redimensionne l'image pour couvrir tout le div */
+    background-position: center;
+    /* 4. Centre l'image */
+    /* Ajoutez d'autres propriétés pour définir la taille du div */
+
+}
+
+
+
+.curtain.right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-image: url('birth_right.png');
+    background-repeat: no-repeat;
+    /* 2. Empêche l'image de se répéter */
+    background-size: 100% 100%;
+    /* 3. Redimensionne l'image pour couvrir tout le div */
+    background-position: center;
+    /* 4. Centre l'image */
+    /* Ajoutez d'autres propriétés pour définir la taille du div */
+}
+
+.curtain.left,
+.curtain.right,
+.cake-img {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+.toggle {
+    display: none;
+}
+
+.toggle:checked+label .curtain.left {
+    transform: translateX(-100%);
+    transition: transform 2s ease;
+}
+
+
+.toggle:checked+label .curtain.right {
+    transform: translateX(100%);
+    transition: transform 2s ease;
+
+}
+
+.toggle:checked+.card_principal .curtain.left {
+    transform: translateX(-100%);
+    transition: transform 2s ease;
+}
+
+.toggle:checked+.card_principal .curtain.right {
+    transform: translateX(100%);
+    transition: transform 2s ease;
+}
+
+.toggle:checked+.card_principal .card_interieur {
+    opacity: 1;
+}
+
+/* Bouton rond centré */
+.btn_open {
+    position: absolute;
+    /* se place par rapport à .card_exterieur */
+    top: 50%;
+    /* au milieu vertical */
+    left: 50%;
+    /* au milieu horizontal */
+    transform: translate(-50%, -50%);
+    /* correction centrage exact */
+
+    width: 100px;
+    /* largeur du bouton */
+    height: 100px;
+    /* hauteur */
+    border-radius: 50%;
+    /* cercle */
+    background: #4e4697;
+    /* couleur du bouton (assortie au rideau) */
+    border: none;
+    /* pas de bordure par défaut */
+    color: white;
+    /* texte blanc */
+    font-size: 18px;
+    /* taille du texte */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* petite ombre */
+    transition: 0.3s;
+}
+
+/* Effet au survol */
+.btn_open:active {
+    background: #3119b4;
+    /* couleur plus foncée 
+    transform: translateX(-50%, -50%) scale(1.1);
+    /* zoom léger */
+    display: none;
+
+}
+
+.toggle:checked+label .btn_open {
+    top: 80%;
+    /* يهبط لتحت */
+    transform: translate(-50%, -50%);
+}
+
+.toggle:checked+label .btn_open::after {
+    content: "CLOSE";
+}
+
+.toggle:checked+label .btn_open {
+    font-size: 20px;
+}
+
+.btn_open::after {
+    content: "OPEN";
+}
+
+/* État initial : invisible */
+.message_birth h1,
+.message_birth p,
+.message_birth img {
+    opacity: 0;
+    margin: 10px 0;
+
+
+}
+
+/* --- Animations --- */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromDown {
+    from {
+        opacity: 0;
+        transform: translateY(1000px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(200px);
+    }
+}
+
+@keyframes slideToLeft {
+    to {
+        transform: translateX(900px);
+        /* décalage vers la gauche */
+        opacity: 1;
+    }
+}
+
+@keyframes slideToRight {
+    to {
+        transform: translateX(900px);
+
+        /* décalage vers la gauche */
+        opacity: 1;
+    }
+}
+
+@keyframes slideTodownY {
+    to {
+        transform: translateY(200px);
+
+
+
+        /* décalage vers la gauche */
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInCenter {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Séquence : h1 puis p puis gif */
+.message_birth h1 {
+    animation: slideInFromTop 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.message_birth p {
+    animation: slideInFromTop 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.message_birth img {
+    animation: slideInFromDown 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+
+
+
+
+
+.message_birth h1 {
+    animation: slideInFromTop 0.8s ease forwards, slideToLeft 0.8s ease forwards;
+    animation-delay: 0.2s, 1.6s;
+    /* d'abord apparaît, puis glisse */
+    position: center;
+}
+
+.message_birth p {
+    animation: slideInFromTop 0.8s ease forwards, slideToLeft 0.8s ease forwards;
+    animation-delay: 0.8s, 2.2s;
+}
+
+/*.message_birth img {
+    animation: slideInFromDown 0.8s ease forwards, slideToRight 0.8s ease forwards;
+    animation-delay: 0.8s, 2.2s;
+}*/
+.message_birth img {
+    animation: slideToRight 0.8s ease forwards, slideTodownY 0.8s ease forwards;
+    animation-delay: 0.8s, 2.2s;
+}
