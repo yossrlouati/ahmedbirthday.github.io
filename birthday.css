@@ -1,6 +1,4 @@
-body{
-    background-color: rgb(4, 11, 73);//hedha last
-}
+
 .message_birth {
     color: rgb(238, 235, 243);
     position: relative; /* au lieu de absolute */
@@ -141,8 +139,9 @@ body{
 
 .toggle:checked+label .btn_open::after {
     content: "CLOSE";
-    content: var(-60%);//zedtha
-    font-size: 5px; //zedtha
+    text-size-adjust: 50%;
+    font-size: 50%;
+    
     
 }
 
