@@ -31,6 +31,7 @@
     left: 0;
     z-index: 2;
     display: flex;
+     background-color: rgb(4, 11, 73);
 }
 
 .card_interieur {
@@ -136,6 +137,7 @@
 
 .toggle:checked+label .btn_open::after {
     content: "CLOSE";
+    font-size: 20px;
 }
 
 .toggle:checked+label .btn_open {
